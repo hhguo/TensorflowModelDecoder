@@ -1,0 +1,1 @@
+/usr/local/cuda-8.0/include/thrust/detail/type_traits/result_of_adaptable_function.h

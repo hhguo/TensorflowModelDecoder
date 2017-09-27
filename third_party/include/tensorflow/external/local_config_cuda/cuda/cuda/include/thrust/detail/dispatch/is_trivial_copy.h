@@ -1,0 +1,1 @@
+/usr/local/cuda-8.0/include/thrust/detail/dispatch/is_trivial_copy.h
