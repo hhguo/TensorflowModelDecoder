@@ -6,7 +6,7 @@
 # ACTUAL_LIBS: -l   name of actual lib(name).so
 
 
-SOURCE_DIR = .
+SOURCE_DIR = ./src
 BIN_DIR = .
 
 CPP     = gcc -std=c++11
@@ -19,5 +19,10 @@ INPUT_FILE = $(SOURCE_DIR)/tensorflow_model_decoder_main.cpp \
 	$(SOURCE_DIR)/tensorflow_model_decoder.cpp
 OBJET_FILE = $(BIN_DIR)/tensorflow_model_decoder
 
+all: tfcpp_demo
+
 tfcpp_demo:
 	$(CPP) -o $(OBJET_FILE) $(INPUT_FILE) $(INCLUDES) $(LDFLAGS) $(LDLIBS) $(ACTUAL_LIBS) -lstdc++
+
+clean:
+	rm $(OBJET_FILE)
