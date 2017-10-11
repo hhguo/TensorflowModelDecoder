@@ -7,6 +7,8 @@
 #include "tensorflow/core/public/session.h"  
 #include "tensorflow/core/platform/env.h" 
 
+#include "timer.h"
+
 using namespace tensorflow;
 
 class TensorflowModelDecoder {
