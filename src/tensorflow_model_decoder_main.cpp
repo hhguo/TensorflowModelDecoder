@@ -38,8 +38,11 @@ int main(int argc, char **argv) {
                                                  input_tensor));
   tmd.Load(model_file);
 
-  time.Reset();
   tmd.Predict(input, output_tensor_name, &output);
+  time.Reset();
+  for (size_t i = 0; i < 50; ++i) {
+    tmd.Predict(input, output_tensor_name, &output);
+  }
   std::cout << "Time: [ Decode for tensorflow model ] \t" << time.Elapsed()<< "seconds.\n";
 
   const Tensor& output_tensor = output[0];

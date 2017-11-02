@@ -9,8 +9,8 @@ THIRD_PARTY = ./third_party
 SOURCE_DIR = ./src
 BIN_DIR = .
 
-CXX     = gcc -std=c++11
-LDFLAGS = -g -Wall -Wshadow -Wno-sign-compare -w
+CXX     = g++-4.8 -std=c++11
+LDFLAGS = -g -Wall -Wshadow -Wno-sign-compare -w -O2 #-DEIGEN_USE_MKL_ALL 
 
 INCLUDES = -I$(THIRD_PARTY)/include/tensorflow \
 	-I$(THIRD_PARTY)/include/tensorflow/third_party/eigen3	
@@ -23,7 +23,7 @@ OBJET_FILE = $(BIN_DIR)/tensorflow_model_decoder
 all: tfcpp_demo
 
 tfcpp_demo:
-	$(CXX) -o $(OBJET_FILE) $(INPUT_FILE) $(INCLUDES) $(LDFLAGS) $(LDLIBS) $(ACTUAL_LIBS) -lstdc++
+	$(CXX) -o $(OBJET_FILE) $(INPUT_FILE) $(INCLUDES) $(LDFLAGS) $(LDLIBS) $(ACTUAL_LIBS)
 
 clean:
 	rm $(OBJET_FILE)
