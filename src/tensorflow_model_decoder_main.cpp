@@ -8,7 +8,8 @@ int main(int argc, char **argv) {
   char *input_file = argv[2];
   char *output_file = argv[3];
 
-  std::ifstream fin(input_file, std::ios::binary);
+  //std::ifstream fin(input_file, std::ios::binary);
+  std::ifstream fin(input_file);
   std::ofstream fout(output_file);
 
   TensorflowModelDecoder tmd;
@@ -18,8 +19,9 @@ int main(int argc, char **argv) {
   Timer time;
 
   int row, col;
-  fin.read((char*)&row, sizeof(float));
-  fin.read((char*)&col, sizeof(float));
+  //fin.read((char*)&row, sizeof(float));
+  //fin.read((char*)&col, sizeof(float));
+  fin >> row >> col;
   std::cout << row << " " << col << std::endl; 
   std::vector<std::pair<std::string, Tensor>> input;
   std::vector<tensorflow::Tensor> output;
@@ -30,7 +32,8 @@ int main(int argc, char **argv) {
   for (size_t i = 0; i < row; ++i) {
     for (size_t j = 0; j < col; ++j) {
       float tmp;
-      fin.read((char*)&tmp, sizeof(float));
+      //fin.read((char*)&tmp, sizeof(float));
+      fin >> tmp;
       x_map(i, j) = tmp;
     }
   }

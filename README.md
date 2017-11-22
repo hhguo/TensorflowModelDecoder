@@ -2,7 +2,7 @@
 
 ## Dependent library
 
-protobuf 3.0.0
+protobuf 3.3.x
 
 tensorflow (branch r1.3)
 
